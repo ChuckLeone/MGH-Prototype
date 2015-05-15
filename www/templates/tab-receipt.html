@@ -1,0 +1,35 @@
+<ion-view title="MyGovHub">
+	<div my-gov-hub-location></div>
+    <ion-content class="padding tall-scroll">
+        <ion-list>
+            <ion-item class="item-divider title-head">
+                <h3>{{ typeDisplayName }} Payment Receipt</h3>
+            </ion-item>
+            <ion-item>
+                Original balance:
+                <span class="item-note">
+                    {{ oldBalance | currency }}
+                </span>
+            </ion-item>
+            <ion-item class="item-divider">
+                Payments:
+            </ion-item>
+            <ion-item ng-repeat="payment in payments">
+                    {{ date | date:'MM/dd/yyyy'}}
+                <span class="item-note">
+                    (-{{ payment | currency }})
+                </span>
+            </ion-item>
+            <ion-item>
+                Current Balance:
+                <span class="item-note">
+                    {{ balance | currency }}
+                </span>
+            </ion-item>
+        </ion-list>
+        <button ng-click="back();"
+                class="btn btn--selectiveYellow">
+            Done
+        </button>
+    </ion-content>
+</ion-view>

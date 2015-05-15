@@ -1,0 +1,10 @@
+<ion-popover-view>
+	<ion-content class="padding" id="mobile-modal">
+		<ion-list>
+			<ion-item ng-repeat="city in cities"
+					  ng-click="changeCity('{{city.id}}')" class="ion-list btn btn--selectiveYellow">
+				{{city.displayName}}
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-popover-view>

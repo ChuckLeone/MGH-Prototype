@@ -1,0 +1,238 @@
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+.error {
+	padding: 5px;
+	font-size: 13px;
+	color: #B01E00;
+}
+
+.pane {
+    background: #009393 url("../img/background.png") no-repeat;
+    width: 100%;
+    height: auto;
+}
+
+.pane-li {
+    background: #f3f3f3;
+}
+
+.bar.bar-stable {
+    border-top-color: #737373;
+    background-color: rgb(79, 76, 76);
+    border-top: 3px solid #737373;
+    border-bottom: none;
+    color: #ffffff;
+}
+
+.bar.bar-stable .title {
+    color: #fff;
+}
+
+.scroll {
+    padding: 10px;
+}
+
+.scroll-content {
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,1) 99%, rgba(0,0,0,1) 60%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0)), color-stop(60%,rgba(0,0,0,1)), color-stop(60%,rgba(0,0,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 60%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 60%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,1) 99%,rgba(0,0,0,1) 60%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.8) 99%,rgba(0,0,0,1) 60%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    padding: 100px 0;
+}
+
+.tall-scroll.scroll-content {
+    padding: 40px 0;
+}
+
+.tabs {
+    background-color: #000;
+}
+
+.tabs-striped .tabs {
+    border-top: 1px solid rbga(0, 0, 0, 0.5);
+    color: #92E6F4;
+    background-color: #000;
+}
+
+.tabs-striped .tab-item.tab-item-active {
+    border-color: #58BEB9;
+    color: #92E6F4;
+    text-decoration: none;
+}
+
+.tabs-hidden .tabs {
+	display: none;
+}
+
+.tabs-hidden .has-tabs {
+	bottom: 0;
+}
+
+.item-input {
+    background-color: none;
+    padding: 5px 5px 5px 5px;
+}
+
+.ion-list {
+    border-color: #737373;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.form {
+    background-color: #fff;
+    border-radius: 3px 3px 3px 3px;
+    padding: 10px;
+}
+
+
+/*.fieldset.fieldset-homepage {
+    margin-top: 25%;
+}*/
+
+.btn {
+    width: 100%;
+    border-radius: 0;
+    margin: 10px 0;
+    font-size: 20px;
+    color: white;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+/* color mods */
+.white {
+    color: #fff;
+}
+
+.pink {
+    color: pink;
+}
+
+/* margin mods */
+
+.pull-up-60 {
+    margin-top: -60px;
+}
+
+/* padding mods */
+
+.pad-l5 {
+    padding-left: 5px;
+}
+
+.pad-r5 {
+    padding-right: 5px;
+}
+
+/* alignment mods */
+
+.center {
+    text-align: center;
+}
+
+.accordion-heading .accordion-toggle {
+    background-color: white;
+    background-image: none;
+    color: black;
+    border-bottom: 1px solid #999;
+}
+
+.accordion-heading .accordion-toggle:before {
+    display: none;
+}
+
+.accordion-inner {
+    background-color: white;    
+}
+
+.tab-item .icon {
+    height: 30px;
+    font-size: 24px;
+	color: #92E6F4;
+}
+
+.tab-title {
+	color: #92E6F4;
+}
+
+.item-complex .item-content, .item-radio .item-content {
+    color: white;
+    font-size: 20px;
+    background-color: transparent;
+    padding: 0;
+}
+
+.title-head {
+    border-bottom: 2px solid #00A4A4;
+    font-weight: normal;
+}
+
+.button.back-button {
+	color: #fff;
+}
+
+
+.button.back-button:hover {
+	color: #78fafe;
+}
+
+.item h3 {
+    font-size: 1.15rem;
+}
+
+/* modal window styles */
+
+.platform-android .popover-backdrop, .platform-android .popover-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.popover-backdrop.active {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.platform-ios .popover-arrow {
+    display: none;
+}
+
+.popover-open .popover {
+    background: none;
+}
+
+.platform-android .popover {
+    background-color: none;
+}
+
+.platform-android .popover .item {
+    color: #fff;
+    background-color: #F4B300;
+}
+
+.popover {
+    border: none;
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    width: 90%;
+}
+
+#mobile-modal {
+    background: none;
+}
+
+.box {
+    background-color: white;
+    padding: 0.35rem 0.5rem;
+    border-radius: 3px;
+}

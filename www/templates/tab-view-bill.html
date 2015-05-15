@@ -1,0 +1,135 @@
+<ion-view title="MyGovHub">
+	<div my-gov-hub-location></div>
+	<ion-content class="padding tall-scroll">
+		<div class="col-5">
+			<div>
+				<div class="accordion" close-others="false">
+					<div class="accordion-group box" is-open="true" data-ng-show="customerSettings.enableUtility">
+						<div class="accordion-heading">
+							<a class="accordion-toggle">
+								<span class="accordion-heading-text">Utilities</span>
+								<span class="accordion-heading-balance" data-ng-hide="!data.utilities || data.utilities.length <= 0">
+									<span class="currencySign currencySign--black">$</span>{{ data.utilityBalance | currency: "" }}
+								</span>
+							</a>
+						</div>
+
+						<p data-ng-show="!data.utilities || data.utilities.length <= 0" class="message message-info">You haven't added any accounts</p>
+                        <!-- utilities boxccordion -->
+						<div class="accordion-inner">
+							<ul data-ng-show="data.utilities.length > 0" class="accountList">
+								<li id="{{ utility.id }}" data-ng-repeat="utility in data.utilities">
+                                    <!-- account address -->
+									<span class="float-left">
+										<a id="utilityLinkFor{{ utility.id }}" data-ng-href="#/utilities/details/{{ utility.id }}" title="View Bill Details for {{ utility.type }} - {{ utility.address }}" data-ng-class="{active: utility.address.length > 24}">{{ utility.address | lowercase }}</a>
+									</span>
+                                    <!-- /account address -->
+                                    <!-- account title -->
+                                    <span class="float-right">{{ utility.type | lowercase }} <span data-ng-show="utility.accountNumber.length > 0"> - </span> {{ utility.accountNumber }}</span>
+                                    <br />
+                                    <!-- due date and past due text -->
+                                    <span class="float-left" data-ng-show="utility.dueDate && utility.currentBalance > 0">
+                                        <span data-ng-hide="isAccountPastDue(utility)">Due on {{ utility.dueDate | date:'MM/dd/yy' }}</span>
+                                        <span data-ng-show="isAccountPastDue(utility)" title="Payment due {{ utility.dueDate | date:'MM/dd/yy' }} - Please pay now." class="accountList-pastDue">
+                                            Past Due
+                                        </span>
+                                    </span>
+
+                                    <!-- /due date and past due text -->
+                                    <!--<ul class="accountList-subList clear">
+                                        <li>
+
+                                        </li>
+                                    </ul>-->
+
+                                    <!--  current balance -->
+                                    <span class="fnt-m float-right">
+                                        <span data-ng-show="utility.pendingPaymentTotal > 0"
+                                              bs-popover="'views/partials/popover-pending-payments.html'"
+                                              title="Pending Payments"
+                                              data-html="true"
+                                              data-placement="top"
+                                              data-trigger="click"
+                                              data-unique="1"
+                                              class="accountList-pending"><i class="fa fa-asterisk"></i></span>
+                                        {{ utility.currentBalance | currency }}
+                                    </span>
+                                    <br />
+                                    <!--  /current balance -->
+									<span class="accountList-colRight">
+										<a data-ng-show="utility.enableCustomerPayment && utility.enableAccountPayment && utility.currentBalance > 0" ng-click="pay(utility.address, 'utility', utility.currentBalance, utility.id)" title="Pay balance for {{ utility.type }} - {{ utility.address }}" class="btn btn--success btn--block">Pay Now</a>
+										<a data-ng-show="utility.enableCustomerPayment && utility.enableAccountPayment && utility.currentBalance <= 0 && !hasReceipt('utility', utility.id)" data-ng-disabled="true" title="This utility does not have an outstanding balance." class="btn btn--success btn--block">Pay Now</a>
+                                        <a data-ng-show="hasReceipt('utility', utility.id)" data-ng-disabled="false" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/utility/{{ utility.id}}">View Payment Receipt</a>
+									</span>
+								</li>
+							</ul>
+						</div>
+
+                        <!-- /utilities accordion-->
+					</div>
+					<div data-ng-show="customerSettings.enableUtility"><br /></div>
+					<div class="accordion-group box" is-open="true" data-ng-show="customerSettings.enablePropertyTax">
+						<div class="accordion-heading">
+							<a class="accordion-toggle">
+								<span class="accordion-heading-text">Property Tax</span>
+								<span class="accordion-heading-balance" data-ng-hide="!data.taxProperties || data.taxProperties.length <= 0">
+									<span class="currencySign currencySign--black">$</span>{{ data.taxPropertyBalance | currency: "" }}
+								</span>
+							</a>
+						</div>
+						<p data-ng-show="!data.taxProperties || data.taxProperties.length <= 0" class="message message-info">You haven't added any accounts</p>
+                        <!-- property taxes accordion-->
+						<div class="accordion-inner">
+							<ul data-ng-show="data.taxProperties.length > 0" class="accountList">
+
+								<li id="{{ property.id }}" data-ng-repeat="property in data.taxProperties">
+                                    <!-- property address -->
+									<span class="float-left">
+										{{ property.address | lowercase }}
+									</span>
+                                    <!-- /property address -->
+                                    <!-- past due text -->
+                                    <span class="float-right">{{ property.type | lowercase }} <span data-ng-show="utility.accountNumber.length > 0"> - </span> {{ property.accountNumber }}</span>
+                                    <br />
+                                    <span class="float-left" data-ng-show="property.dueDate && property.currentBalance > 0">
+                                        <span data-ng-hide="isAccountPastDue(property)">Due on {{ property.dueDate | date:'MM/dd/yy' }}</span>
+                                        <span data-ng-show="isAccountPastDue(property)" title="Payment due {{ property.dueDate | date:'MM/dd/yy' }} - Please pay now." class="accountList-pastDue">
+                                            Past Due
+                                        </span>
+                                    </span>
+                                    <!-- /past due text -->
+                                    <!-- current balance -->
+									<span class="fnt-m float-right">
+										<span data-ng-show="property.pendingPaymentTotal > 0"
+											  bs-popover="'views/partials/popover-pending-payments.html'"
+											  title="Pending Payments"
+											  data-html="true"
+											  data-placement="top"
+											  data-trigger="click"
+											  data-unique="1"
+											  class="accountList-pending"><i class="fa fa-asterisk"></i></span>
+										{{ property.currentBalance | currency }}
+									</span>
+                                    <!-- /current balance -->
+                                    <br />
+                                    <!-- payment button -->
+									<span class="accountList-colRight">
+										<a data-ng-show="property.enableCustomerPayment && property.currentBalance > 0" ng-click="pay(property.address, 'taxProperty', property.currentBalance, property.id)" title="Pay balance for {{ property.type }} - {{ property.address }}" class="btn btn--success btn--block">Pay Now</a>
+                                        <a data-ng-show="hasReceipt('taxProperty', property.id)" data-ng-disabled="false" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/taxProperty/{{ property.id }}">View Payment Receipt</a>
+                                        <a data-ng-show="property.enableCustomerPayment && property.currentBalance <= 0 && !hasReceipt('taxProperty', property.id)" data-ng-disabled="true" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/taxProperty">Pay Now</a>
+									</span>
+                                    <!-- /payment button -->
+									<ul class="accountList-subList clear">
+										<li>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+                        <!-- /property taxes accordion-->
+					</div>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

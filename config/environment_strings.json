@@ -1,0 +1,16 @@
+{
+	"dev": {
+	},
+	"integration": {
+		"datahostname" : "{subdomain}.tyrion.harriscomputer.com",
+		"subdomain" : "intcustomer1"
+	},
+	"qa": {
+		"datahostname" : "{subdomain}.hound.harriscomputer.com",
+		"subdomain" : "qacustomer1"
+	},
+	"staging": {
+		"datahostname" : "{subdomain}.viserys.harriscomputer.com",
+		"subdomain" : "democustomer1"
+	}
+}

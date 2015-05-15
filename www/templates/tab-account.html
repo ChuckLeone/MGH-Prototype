@@ -1,0 +1,81 @@
+<ion-view title="MyGovHub">
+    <div my-gov-hub-location></div>
+    <ion-content class="padding tall-scroll">
+        <br />
+        <!-- login stuff -->
+        <div ng-if="identity.isSignedIn() == false && city != null" class="list">
+            <div class="fieldset fieldset-homepage">
+                <h3>Sign In</h3>
+                <form name="login" validate>
+                    <ol class="form-list form-homepage">
+                        <li>
+                            <input type="email" placeholder="Email" ng-model="user.username" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" required />
+                        </li>
+                        <li>
+                            <input type="password" placeholder="Password" ng-model="user.password" required />
+                            <div ng-if="badLogin">
+                                <div class="error">
+                                    <i class="icon ion-alert"></i> {{badLogin}}
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <button ng-click="doLogin(user);"
+									data-ng-disabled="login.$invalid"
+                                    class="button button-block button-stable btn btn--primary">
+                                Login
+                            </button>
+                        </li>
+                    </ol>
+                </form>
+            </div>
+        </div>
+
+        <!-- welcome/menu stuff -->
+        <div ng-if="identity.isSignedIn()">
+            <div class="accordion-group box">
+                <div class="accordion-heading">
+                    <div class="accordion-toggle">
+                        <span class="accordion-heading-text fnt-m">Profile for {{profile.firstName}} {{profile.lastName}}</span>
+                    </div>
+                </div>
+                <ion-list>
+
+                    <ion-item class="item">
+                        <span class="grey">First Name:</span>
+                        {{profile.firstName}}
+                    </ion-item>
+                    <ion-item class="item">
+                        <span class="grey">Last Name:</span>
+                        {{profile.lastName}}
+                    </ion-item>
+                    <ion-item class="item">
+                        <span class="grey">Email Address:</span>
+                        {{profile.email}}
+                    </ion-item>
+                </ion-list>
+                <p>
+                    <button ng-click="signOut();"
+                            class="btn btn--selectiveYellow">
+                        Sign Out
+                    </button>
+                </p>
+                <!--<p ng-if="city != null">
+            <button ng-click="chooseCity($event)"
+                    class="btn btn--selectiveYellow">
+                Change City
+            </button>
+        </p>-->
+            </div>
+        </div>
+        <!-- city stuff -->
+        <div ng-if="city == null">
+            <p>
+                <button ng-click="chooseCity()"
+                        class="btn btn--selectiveYellow">
+                    Select City
+                </button>
+            </p>
+        </div>
+    </ion-content>
+</ion-view>
