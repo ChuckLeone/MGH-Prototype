@@ -235,4 +235,5 @@ img {
     background-color: white;
     padding: 0.35rem 0.5rem;
     border-radius: 3px;
+    box-shadow: none;
 }

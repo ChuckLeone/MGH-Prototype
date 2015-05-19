@@ -57,9 +57,9 @@
                                     <br />
                                     <!--  /current balance -->
 									<span class="accountList-colRight">
-										<a data-ng-show="utility.enableCustomerPayment && utility.enableAccountPayment && utility.currentBalance > 0" ng-click="pay(utility.address, 'utility', utility.currentBalance, utility.id)" title="Pay balance for {{ utility.type }} - {{ utility.address }}" class="btn btn--success btn--block">Pay Now</a>
-										<a data-ng-show="utility.enableCustomerPayment && utility.enableAccountPayment && utility.currentBalance <= 0 && !hasReceipt('utility', utility.id)" data-ng-disabled="true" title="This utility does not have an outstanding balance." class="btn btn--success btn--block">Pay Now</a>
-                                        <a data-ng-show="hasReceipt('utility', utility.id)" data-ng-disabled="false" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/utility/{{ utility.id}}">View Payment Receipt</a>
+										<button data-ng-show="utility.enableCustomerPayment && utility.enableAccountPayment && utility.currentBalance > 0" ng-click="pay(utility.address, 'utility', utility.currentBalance, utility.id)" title="Pay balance for {{ utility.type }} - {{ utility.address }}" class="btn btn--success btn--block">Pay Now</button>
+										<button data-ng-show="utility.enableCustomerPayment && utility.enableAccountPayment && utility.currentBalance <= 0 && !hasReceipt('utility', utility.id)" data-ng-disabled="true" title="This utility does not have an outstanding balance." class="btn btn--success btn--block">Pay Now</button>
+                                        <button data-ng-show="hasReceipt('utility', utility.id)" data-ng-disabled="false" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/utility/{{ utility.id}}">View Payment Receipt</button>
 									</span>
 								</li>
 							</ul>
@@ -114,9 +114,9 @@
                                     <br />
                                     <!-- payment button -->
 									<span class="accountList-colRight">
-										<a data-ng-show="property.enableCustomerPayment && property.currentBalance > 0" ng-click="pay(property.address, 'taxProperty', property.currentBalance, property.id)" title="Pay balance for {{ property.type }} - {{ property.address }}" class="btn btn--success btn--block">Pay Now</a>
-                                        <a data-ng-show="hasReceipt('taxProperty', property.id)" data-ng-disabled="false" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/taxProperty/{{ property.id }}">View Payment Receipt</a>
-                                        <a data-ng-show="property.enableCustomerPayment && property.currentBalance <= 0 && !hasReceipt('taxProperty', property.id)" data-ng-disabled="true" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/taxProperty">Pay Now</a>
+										<button data-ng-show="property.enableCustomerPayment && property.currentBalance > 0" ng-click="pay(property.address, 'taxProperty', property.currentBalance, property.id)" title="Pay balance for {{ property.type }} - {{ property.address }}" class="btn btn--success btn--block">Pay Now</button>
+                                        <button data-ng-show="hasReceipt('taxProperty', property.id)" data-ng-disabled="false" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/taxProperty/{{ property.id }}">View Payment Receipt</button>
+                                        <button data-ng-show="property.enableCustomerPayment && property.currentBalance <= 0 && !hasReceipt('taxProperty', property.id)" data-ng-disabled="true" title="This property does not have an outstanding balance." class="btn btn--primary" href="#/tab/receipt/taxProperty">Pay Now</button>
 									</span>
                                     <!-- /payment button -->
 									<ul class="accountList-subList clear">

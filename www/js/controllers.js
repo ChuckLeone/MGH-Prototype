@@ -134,6 +134,7 @@ function($scope, $ionicLoading, Identity, Bill, $location, Payment, Cities, $sta
 		var paymentSuccess = function() {
 			$state.go('tab.receipt', { accountType: accountType, propertyId: propertyId });
 			Bill.applyPayment(accountType, amount, propertyId);
+
 		}
 
 		var paymentHandler = Payment.getHandler(paymentSuccess);
@@ -143,7 +144,11 @@ function($scope, $ionicLoading, Identity, Bill, $location, Payment, Cities, $sta
 			description: propertyName + " payment $" + amount,
 			amount: newAmount
 		});
-	};
+    };
+
+    //$scope.pay = function() {
+    //    $location.path('/payment');
+    //};
 }])
 
 .controller('ReceiptCtrl', [

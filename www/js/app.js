@@ -86,7 +86,17 @@ var app = angular.module('mygovhub', [
 				controller: 'BillCtrl'
 			}
 		}
-	});
+	})
+
+    .state('payment', {
+        url: '/payment',
+        views: {
+            'tab-home': {
+                templateUrl: 'templates/payment.html',
+                controller: 'payCtrl'
+            }
+        }
+    });
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/choose-city');
